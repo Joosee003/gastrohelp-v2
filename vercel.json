@@ -1,6 +1,33 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/demo.html",
+      "has": [
+        {
+          "type": "header",
+          "key": "Sec-Fetch-Dest",
+          "value": "document"
+        }
+      ],
+      "destination": "https://panel.gastrohelp.es/demo",
+      "permanent": false
+    },
+    {
+      "source": "/demo",
+      "has": [
+        {
+          "type": "header",
+          "key": "Sec-Fetch-Dest",
+          "value": "document"
+        }
+      ],
+      "destination": "https://panel.gastrohelp.es/demo",
+      "permanent": false
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

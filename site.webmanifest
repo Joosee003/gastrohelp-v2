@@ -4,7 +4,7 @@
   "description": "Sistema conectado para restaurantes",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#090716",
+  "background_color": "#030814",
   "theme_color": "#1601ad",
   "icons": [
     {"src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable"}

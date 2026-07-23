@@ -3,11 +3,13 @@ import { cp, mkdir, rm } from 'node:fs/promises';
 const files = [
   'index.html',
   'styles.css',
+  'landing.css',
   'app.js',
   'software-restaurantes.html',
   'sistema-reservas-restaurantes.html',
   'camarero-digital-restaurantes.html',
   'fidelizacion-restaurantes.html',
+  'gestion-clientes-restaurantes.html',
   'logo.svg',
   'favicon.svg',
   'og-card.svg',

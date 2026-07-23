@@ -1,0 +1,102 @@
+/* Capa final de calidad visual y accesibilidad de GastroHelp */
+:root{color-scheme:light;--focus:#7dd3fc;--dark-copy:#c4d2e5;--dark-muted:#9fb0c7}
+html{scroll-padding-top:112px}
+body{font-synthesis:none}
+main section[id]{scroll-margin-top:112px}
+a,button{touch-action:manipulation}
+:where(a,button,input,select,textarea,summary):focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+:where(h1,h2,h3){text-wrap:balance}
+:where(p,li){text-wrap:pretty}
+
+/* Contraste reforzado en fondos oscuros */
+.hero-lead{color:rgba(255,255,255,.79)}
+.hero-assurance{color:rgba(255,255,255,.69)}
+.section-heading.light p{color:rgba(255,255,255,.73)}
+.module-tab{color:#adbed4}
+.module-tab small{color:#91a4bd}
+.module-tab.active small{color:#cfdaea}
+.module-copy>p{color:#b4c3d7}
+.module-copy li{color:#e0e8f3}
+.flow-source span{color:#b8cae1}
+.flow-core small{color:#9bc3f5}
+.flow-core strong{color:#b8c6d9}
+.flow-output div{color:#d1dbea}
+.mini-module span{color:#8cb9f2}
+.outcome-main p{color:#bdd0e6}
+.quote-box p{color:#d4e1f1}
+.sidebar-demo p{color:#b8c8dc}
+.demo-section p,.demo-copy p{color:#c6d4e7}
+.demo-points{color:#d9e4f2}
+.final-cta p{color:#d0dcf0}
+.site-footer p,.site-footer a{color:#9fb0c7}
+.site-footer a:hover{color:#fff}
+.breadcrumbs{color:#a9b8cc}
+.seo-hero>div>p,.seo-hero .hero-description{color:rgba(255,255,255,.78)}
+.seo-proof span{color:#c7d5e7;background:rgba(255,255,255,.065)}
+
+/* Superficies y estados interactivos */
+.btn{min-height:46px}
+.btn-ghost{background:rgba(255,255,255,.075);border-color:rgba(255,255,255,.18)}
+.btn-ghost:hover{background:rgba(255,255,255,.12);border-color:rgba(125,211,252,.32)}
+.module-tab:focus-visible,.menu-button:focus-visible{outline-color:#93c5fd}
+.story-card,.outcome-card,.audience-card,.resource-card,.related-card,.check-card,.process-item{will-change:transform}
+.resource-card,.related-card,.audience-card{isolation:isolate}
+
+/* Mejor legibilidad y rendimiento de secciones largas */
+@supports(content-visibility:auto){
+  .narrative-section,.modules-section,.outcomes-section,.implementation-section,.audience-section,.resources-section,.faq-section,.related-section,.article-shell{content-visibility:auto;contain-intrinsic-size:900px}
+}
+
+/* Evita que una animación o fallo de JS deje contenido invisible */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .reveal{opacity:1!important;transform:none!important}
+  .cursor-glow{display:none}
+}
+
+/* Dispositivos táctiles: menos efectos innecesarios */
+@media(hover:none){
+  .btn:hover,.story-card:hover,.outcome-card:hover,.resource-card:hover,.related-card:hover,.mini-module:hover,.system-node:hover{transform:none}
+  .cursor-glow{display:none}
+}
+
+/* Tablets */
+@media(max-width:1100px){
+  .desktop-nav{gap:18px}
+  .hero-layout{gap:34px}
+  .system-visual{transform:scale(.94);transform-origin:center}
+  .module-stage{padding:38px;gap:28px}
+}
+
+/* Móvil: jerarquía, lectura y objetivos táctiles */
+@media(max-width:760px){
+  .container{width:min(100% - 28px,1220px)}
+  .nav-shell{width:calc(100% - 20px);height:66px;padding-left:13px;border-radius:18px}
+  .brand{font-size:19px}.brand img{width:37px;height:37px}
+  .hero{min-height:auto;padding-top:132px}
+  .hero h1{font-size:clamp(45px,14vw,66px);line-height:.95}
+  .hero-lead{font-size:16px;line-height:1.65}
+  .hero-actions{display:grid}.hero-actions .btn{width:100%}
+  .hero-assurance{gap:10px 14px}
+  .section{padding:84px 0}
+  .section-heading{margin-bottom:36px}
+  .section-heading h2,.narrative-sticky h2,.implementation-copy h2{font-size:clamp(38px,11vw,52px)}
+  .section-heading p,.narrative-sticky>p,.implementation-copy>p{font-size:15px}
+  .story-card,.outcome-card,.audience-card,.resource-card{border-radius:23px}
+  .module-explorer{border-radius:24px}
+  .module-stage{padding:26px 18px}
+  .module-copy h3{font-size:36px}
+  .flow-visual{border-radius:21px}
+  .final-actions,.seo-cta-actions{width:100%;display:grid}
+  .final-actions .btn,.seo-cta-actions .btn{width:100%}
+  .site-footer{padding-bottom:max(24px,env(safe-area-inset-bottom))}
+}
+
+/* Alto contraste solicitado por el sistema */
+@media(prefers-contrast:more){
+  :root{--muted:#475569}
+  .hero-lead,.section-heading.light p,.module-copy>p,.demo-section p{color:#fff}
+  .module-tab,.module-tab small,.site-footer p,.site-footer a{color:#e2e8f0}
+  .btn,.module-tab,.story-card,.outcome-card,.resource-card,.related-card{border-width:2px}
+}

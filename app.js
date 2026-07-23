@@ -1,4 +1,9 @@
 (() => {
+  const enhancement = document.createElement('link');
+  enhancement.rel = 'stylesheet';
+  enhancement.href = '/enhancements-v2.css?v=20260723-1';
+  document.head.appendChild(enhancement);
+
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const header = document.querySelector('.site-header');
   const menuButton = document.querySelector('.menu');
@@ -69,6 +74,28 @@
       detail.parentElement?.querySelectorAll('details').forEach((other) => { if (other !== detail) other.open = false; });
     });
   });
+
+  if (!reduceMotion && window.matchMedia('(hover:hover) and (pointer:fine)').matches) {
+    document.querySelectorAll('.bento > *').forEach((card) => {
+      card.addEventListener('pointermove', (event) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${((event.clientX - rect.left) / rect.width) * 100}%`);
+        card.style.setProperty('--my', `${((event.clientY - rect.top) / rect.height) * 100}%`);
+      });
+    });
+  }
+
+  const processSteps = [...document.querySelectorAll('.flow-step')];
+  if ('IntersectionObserver' in window && processSteps.length) {
+    const stepObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        processSteps.forEach((step) => step.classList.remove('is-active'));
+        entry.target.classList.add('is-active');
+      });
+    }, { threshold: 0.62 });
+    processSteps.forEach((step) => stepObserver.observe(step));
+  }
 
   const cookieBanner = document.getElementById('cookie-banner');
   const cookieSettings = document.getElementById('cookie-settings');

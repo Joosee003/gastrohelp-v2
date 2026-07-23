@@ -2,23 +2,25 @@ import { cp, mkdir, rm } from 'node:fs/promises';
 
 const files = [
   'index.html',
-  'styles.css',
-  'landing.css',
-  'polish.css',
+  'home-v4.css',
+  'enhancements-v2.css',
   'app.js',
-  'software-restaurantes.html',
-  'sistema-reservas-restaurantes.html',
-  'camarero-digital-restaurantes.html',
-  'fidelizacion-restaurantes.html',
-  'gestion-clientes-restaurantes.html',
-  'logo.svg',
-  'favicon.svg',
   'brand-logo-2026.svg',
   'brand-icon-2026.svg',
   'og-card.svg',
   'site.webmanifest',
   'robots.txt',
-  'sitemap.xml'
+  'sitemap.xml',
+  'legal.css',
+  'aviso-legal.html',
+  'privacidad.html',
+  'cookies.html',
+  'seguridad.html',
+  'software-restaurantes.html',
+  'sistema-reservas-restaurantes.html',
+  'camarero-digital-restaurantes.html',
+  'fidelizacion-restaurantes.html',
+  'gestion-clientes-restaurantes.html'
 ];
 
 await rm('dist', { recursive: true, force: true });

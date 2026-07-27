@@ -10,6 +10,28 @@
   const mobileMenu = document.querySelector('.mobile');
   const progress = document.querySelector('.progress span');
 
+  // Enlace visible desde la portada hacia el directorio principal de soluciones.
+  // Mantiene la navegación de una sola página y añade una ruta rastreable al cluster SEO.
+  const solutionsHeading = document.querySelector('#soluciones .section-heading');
+  if (solutionsHeading && !solutionsHeading.querySelector('[data-solutions-hub]')) {
+    const solutionsHub = document.createElement('a');
+    solutionsHub.href = '/soluciones-restaurantes';
+    solutionsHub.className = 'text-link';
+    solutionsHub.dataset.solutionsHub = 'true';
+    solutionsHub.textContent = 'Ver todas las soluciones para restaurantes →';
+    solutionsHeading.appendChild(solutionsHub);
+  }
+
+  const productFooter = [...document.querySelectorAll('.footer-grid > div')].find((column) =>
+    column.querySelector('b')?.textContent.trim() === 'Producto'
+  );
+  if (productFooter && !productFooter.querySelector('a[href="/soluciones-restaurantes"]')) {
+    const footerHub = document.createElement('a');
+    footerHub.href = '/soluciones-restaurantes';
+    footerHub.textContent = 'Soluciones para restaurantes';
+    productFooter.insertBefore(footerHub, productFooter.children[1] || null);
+  }
+
   const closeMenu = () => {
     mobileMenu?.classList.remove('open');
     mobileMenu?.setAttribute('aria-hidden', 'true');

@@ -1,0 +1,35 @@
+# GastroHelp
+
+GastroHelp ofrece software, automatización e implantación de sistemas para restaurantes en España.
+
+## Sitio principal
+- https://gastrohelp.es/
+- https://gastrohelp.es/soluciones-restaurantes
+- https://gastrohelp.es/software-restaurantes
+
+## Captación y reservas
+- https://gastrohelp.es/google-maps-restaurantes
+- https://gastrohelp.es/paginas-web-restaurantes
+- https://gastrohelp.es/sistema-reservas-restaurantes
+- https://gastrohelp.es/reservas-whatsapp-restaurantes
+- https://gastrohelp.es/chatbot-restaurantes
+
+## Clientes y retorno
+- https://gastrohelp.es/crm-restaurantes
+- https://gastrohelp.es/gestion-clientes-restaurantes
+- https://gastrohelp.es/fidelizacion-restaurantes
+- https://gastrohelp.es/gestion-resenas-restaurantes
+
+## Operativa
+- https://gastrohelp.es/automatizacion-restaurantes
+- https://gastrohelp.es/carta-digital-restaurantes
+- https://gastrohelp.es/camarero-digital-restaurantes
+- https://gastrohelp.es/gestion-sala-restaurantes
+- https://gastrohelp.es/rentabilidad-restaurantes
+
+## Contacto
+- Web: https://gastrohelp.es/#contacto
+- Demo: https://panel.gastrohelp.es/demo
+- Email: gastrohelpsmart@gmail.com
+
+El contenido describe funciones, procesos, criterios de implantación y límites de cada solución. No debe interpretarse como una garantía de resultados comerciales o de posición en buscadores.

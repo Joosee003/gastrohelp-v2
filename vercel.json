@@ -6,6 +6,17 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.gastrohelp.es" }],
+      "destination": "https://gastrohelp.es/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/favicon.ico",
+      "destination": "/brand-icon-2026.svg",
+      "permanent": false
+    },
+    {
       "source": "/demo.html",
       "destination": "https://panel.gastrohelp.es/demo",
       "permanent": false
@@ -30,6 +41,42 @@
           "value": "camera=(), microphone=(), geolocation=()"
         },
         { "key": "X-Frame-Options", "value": "SAMEORIGIN" }
+      ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/llms.txt",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/site.webmanifest",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
       ]
     },
     {

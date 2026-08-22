@@ -2,7 +2,7 @@ import { access, readFile } from "node:fs/promises";
 
 const errors = [];
 const warnings = [];
-const brandLogoPath = "/brand-logo-2026.svg";
+const brandLogoPath = "/logo-gastrohelp.jpg";
 
 const fail = (message) => errors.push(message);
 const warn = (message) => warnings.push(message);
@@ -87,8 +87,8 @@ if (!listBlock) {
       fail(`${file}: el favicon no usa ${brandLogoPath}.`);
     }
 
-    if (html.includes("/logo-gastrohelp.jpg")) {
-      fail(`${file}: todavía contiene una referencia al logotipo antiguo.`);
+    if (html.includes("/brand-logo-2026.svg")) {
+      fail(`${file}: todavía contiene una referencia al icono H+H incorrecto.`);
     }
   }
 

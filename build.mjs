@@ -8,8 +8,6 @@ const files = [
   "landing.css",
   "site-polish.css",
   "app.js",
-  "brand-logo-2026.svg",
-  "brand-icon-2026.svg",
   "logo-gastrohelp.jpg",
   "og-card.svg",
   "og-card.png",

@@ -13,7 +13,7 @@
     },
     {
       "source": "/favicon.ico",
-      "destination": "/brand-icon-2026.svg",
+      "destination": "/logo-gastrohelp.jpg",
       "permanent": false
     },
     {
@@ -98,7 +98,7 @@
       ]
     },
     {
-      "source": "/(brand-logo-2026.svg|brand-icon-2026.svg|logo-gastrohelp.jpg)",
+      "source": "/logo-gastrohelp.jpg",
       "headers": [
         {
           "key": "Cache-Control",

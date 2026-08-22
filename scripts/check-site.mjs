@@ -2,6 +2,7 @@ import { access, readFile } from "node:fs/promises";
 
 const errors = [];
 const warnings = [];
+const brandLogoPath = "/brand-logo-2026.svg";
 
 const fail = (message) => errors.push(message);
 const warn = (message) => warnings.push(message);
@@ -76,6 +77,18 @@ if (!listBlock) {
 
     if (/\bnoindex\b/i.test(html)) {
       fail(`${file}: contiene noindex dentro de un archivo de producción.`);
+    }
+
+    const faviconHref = html.match(
+      /<link\s+rel=["']icon["']\s+href=["']([^"']+)["']/i,
+    )?.[1];
+
+    if (faviconHref !== brandLogoPath) {
+      fail(`${file}: el favicon no usa ${brandLogoPath}.`);
+    }
+
+    if (html.includes("/logo-gastrohelp.jpg")) {
+      fail(`${file}: todavía contiene una referencia al logotipo antiguo.`);
     }
   }
 

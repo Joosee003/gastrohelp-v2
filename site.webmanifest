@@ -8,10 +8,10 @@
   "theme_color": "#1601ad",
   "icons": [
     {
-      "src": "/logo-gastrohelp.jpg",
-      "sizes": "150x150",
-      "type": "image/jpeg",
-      "purpose": "any"
+      "src": "/brand-icon-2026.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     }
   ]
 }

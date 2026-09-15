@@ -20,9 +20,9 @@ Se validan campos, límites, origen y aceptación de privacidad. Incluye un camp
 
 ## Meta
 
-La campaña y sus ajustes no forman parte de este cambio. Hay dos conjuntos visibles: `1249735508220800` (GastroHelp - Leads Restaurantes - Meta) y `26498433679825523` (GastroHelp). Hasta que el gestor confirme el correcto, `pixelId` permanece vacío y la web no carga Meta.
+La campaña y sus ajustes no forman parte de este cambio. El propietario ha confirmado el identificador público `1914558179481592`, configurado en `marketing-config.js`. El píxel de navegador no requiere un token de acceso. No se guarda ninguna credencial de Meta en el código ni se configura la API de conversiones.
 
-Una vez confirmado, se configura exclusivamente `pixelId` en `marketing-config.js`. El visitante debe aceptar antes de cargar el píxel. El consentimiento anterior v1 no se reutiliza para publicidad. “Rechazar” y “Aceptar” tienen igual peso visual, y la elección se revisa desde el pie de todas las páginas.
+El visitante debe aceptar antes de cargar el píxel. Se pide consentimiento nuevo mediante `gastrohelp-consent-v3`: las decisiones v1/v2, recogidas cuando la publicidad podía estar desactivada, no habilitan la medición. “Rechazar” y “Aceptar” tienen igual peso visual y la elección se revisa desde el pie de todas las páginas.
 
 Eventos previstos: `PageView`, `Lead` tras envío confirmado y eventos personalizados para abrir/explorar demos o WhatsApp. No se mandan campos del formulario ni se configura coincidencia avanzada. La configuración automática de eventos se desactiva desde el código del sitio; no se modifica ningún ajuste de campaña en Meta.
 

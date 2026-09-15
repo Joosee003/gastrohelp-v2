@@ -1,6 +1,7 @@
 (() => {
   'use strict';
-  const key = 'gastrohelp-consent-v2';
+  // Ask again when advertising is activated: v2 could be accepted while Meta was disabled.
+  const key = 'gastrohelp-consent-v3';
   const maxAge = 180 * 24 * 60 * 60 * 1000;
   const pixelId = String(window.GH_MARKETING?.pixelId || '');
   const configured = /^\d{10,20}$/.test(pixelId);

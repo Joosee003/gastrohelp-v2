@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises';
 import vm from 'node:vm';
 
 const consentSource = await readFile('consent.js', 'utf8');
-function consentHarness(saved = {}, pixelId = '123456789012345') {
+function consentHarness(saved = {}, pixelId = '1914558179481592') {
   const handlers = {};
   const button = (choice) => ({ dataset: { consent: choice }, addEventListener: (_event, action) => { handlers[choice] = action; }, focus() {} });
   const buttons = [button('reject'), button('accept')];
@@ -24,6 +24,9 @@ function consentHarness(saved = {}, pixelId = '123456789012345') {
 const first = consentHarness({ 'gastrohelp-cookie-consent-v1': JSON.stringify({ value: 'all' }) });
 assert.equal(first.scripts.length, 0, 'Legacy consent must not activate advertising');
 assert.equal(first.banner.hidden, false);
+const previousChoice = consentHarness({ 'gastrohelp-consent-v2': JSON.stringify({ choice: 'accept', timestamp: Date.now() }) });
+assert.equal(previousChoice.scripts.length, 0, 'Consent given while advertising was disabled must not activate Meta');
+assert.equal(previousChoice.banner.hidden, false);
 first.handlers.reject();
 first.window.GHAnalytics.track('Lead');
 assert.equal(first.scripts.length, 0, 'Rejecting must not load Meta');
@@ -32,6 +35,7 @@ assert.equal(first.scripts.length, 1);
 let queue = first.window.fbq.queue.map((args) => Array.from(args));
 assert.equal(queue.filter((args) => args[1] === 'PageView').length, 1);
 assert.ok(queue.some((args) => args[0] === 'set' && args[1] === 'autoConfig' && args[2] === false));
+assert.ok(queue.some((args) => args[0] === 'init' && args[1] === '1914558179481592' && args.length === 2), 'Use the confirmed public ID without advanced matching');
 first.window.GHAnalytics.track('Lead');
 queue = first.window.fbq.queue.map((args) => Array.from(args));
 assert.equal(queue.filter((args) => args[0] === 'track' && args[1] === 'Lead').length, 1);
@@ -41,7 +45,7 @@ first.window.GHAnalytics.track('Lead');
 assert.equal(first.window.fbq.queue.length, countAfterRevoke, 'Revoked consent blocks new events');
 assert.ok(first.removedCookies.some((entry) => entry.startsWith('_fbp=;')));
 assert.ok(first.removedCookies.some((entry) => entry.startsWith('_fbc=;')));
-const expired = consentHarness({ 'gastrohelp-consent-v2': JSON.stringify({ choice: 'accept', timestamp: Date.now() - 181 * 86400000 }) });
+const expired = consentHarness({ 'gastrohelp-consent-v3': JSON.stringify({ choice: 'accept', timestamp: Date.now() - 181 * 86400000 }) });
 assert.equal(expired.scripts.length, 0);
 assert.equal(expired.banner.hidden, false);
 const inactive = consentHarness({}, '');

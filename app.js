@@ -119,27 +119,6 @@
     processSteps.forEach((step) => stepObserver.observe(step));
   }
 
-  const cookieBanner = document.getElementById('cookie-banner');
-  const cookieSettings = document.getElementById('cookie-settings');
-  const consentKey = 'gastrohelp-cookie-consent-v1';
-  const showCookieBanner = () => {
-    cookieBanner?.classList.add('show');
-    cookieBanner?.setAttribute('aria-hidden', 'false');
-  };
-  const hideCookieBanner = () => {
-    cookieBanner?.classList.remove('show');
-    cookieBanner?.setAttribute('aria-hidden', 'true');
-  };
-  const saveConsent = (value) => {
-    localStorage.setItem(consentKey, JSON.stringify({ value, date: new Date().toISOString() }));
-    hideCookieBanner();
-    window.dispatchEvent(new CustomEvent('gastrohelp:cookie-consent', { detail: value }));
-  };
-  if (cookieBanner && !localStorage.getItem(consentKey)) window.setTimeout(showCookieBanner, 500);
-  cookieBanner?.querySelector('[data-cookie="accept"]')?.addEventListener('click', () => saveConsent('all'));
-  cookieBanner?.querySelector('[data-cookie="reject"]')?.addEventListener('click', () => saveConsent('necessary'));
-  cookieSettings?.addEventListener('click', showCookieBanner);
-
   const year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
 })();

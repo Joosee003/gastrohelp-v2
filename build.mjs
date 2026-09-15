@@ -2,6 +2,13 @@ import { cp, mkdir, rm } from "node:fs/promises";
 
 const files = [
   "index.html",
+  "conversion.css",
+  "conversion.js",
+  "consent.js",
+  "consent.css",
+  "modern-pages.css",
+  "marketing-config.js",
+  "assets",
   "home-v4.css",
   "enhancements-v2.css",
   "styles.css",
@@ -40,5 +47,5 @@ const files = [
 
 await rm("dist", { recursive: true, force: true });
 await mkdir("dist", { recursive: true });
-await Promise.all(files.map((file) => cp(file, `dist/${file}`)));
+await Promise.all(files.map((file) => cp(file, `dist/${file}`, { recursive: true })));
 console.log(`GastroHelp: ${files.length} archivos preparados para producción.`);
